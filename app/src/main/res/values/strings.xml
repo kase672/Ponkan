@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Ponkan</string>
+    <string name="toolbar_title"></string>
+    <string name="add_button_text">追加</string>
+
+
+    <string name="input_button">保存</string>
+    <string name="input_title">タイトル</string>
+</resources>

@@ -1,0 +1,9 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Ponkan" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="android:statusBarColor">@android:color/holo_orange_light</item>
+    </style>
+
+    <style name="Theme.Ponkan" parent="Base.Theme.Ponkan" />
+</resources>
