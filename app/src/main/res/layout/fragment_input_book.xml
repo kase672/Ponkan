@@ -2,17 +2,21 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
     <EditText
         android:id="@+id/ListInput"
         android:layout_width="0dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginEnd="64dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:fontFamily="@font/shipporiantique_regular"
         android:inputType="text"
+        android:textSize="30dp"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -23,7 +27,7 @@
     <Button
         android:id="@+id/InputButton"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginStart="64dp"
         android:layout_marginTop="48dp"
         android:layout_marginEnd="64dp"
@@ -39,10 +43,12 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="28dp"
         android:text="@string/input_title"
+        android:textColor="@color/black"
+        android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/ListInput"
         app:layout_constraintStart_toStartOf="@+id/ListInput" />
 </androidx.constraintlayout.widget.ConstraintLayout>

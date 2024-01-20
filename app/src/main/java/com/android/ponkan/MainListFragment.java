@@ -53,6 +53,7 @@ public class MainListFragment extends Fragment {
         rvBook.setAdapter(adapter_Main);
 
         DividerItemDecoration decorator = new DividerItemDecoration(getActivity(), layout.getOrientation());
+        decorator.setDrawable(requireActivity().getDrawable(R.drawable.divider));
         rvBook.addItemDecoration(decorator);
 
         final Drawable deleteIcon = ContextCompat.getDrawable(getActivity(), R.drawable.action_delete);
