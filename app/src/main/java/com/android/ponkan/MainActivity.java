@@ -30,8 +30,6 @@ public class MainActivity extends AppCompatActivity {
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.fragmentMainContainer, mainListFragment);
                 transaction.commit();
-                Log.d("a", "sdsf");
-                finish();
             }
         }
     }

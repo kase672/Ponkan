@@ -1,5 +1,7 @@
 package com.android.ponkan;
 
+import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
+
 import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -88,7 +90,7 @@ public class MainListFragment extends Fragment {
                 DatabaseHelper dbHelper = new DatabaseHelper(requireContext());
                 dbHelper.deleteBook(swipedPosition);
 
-                MainListFragmentUpdata();
+                MainListFragmentUpdate();
 
                 // 削除されたことを知らせて反映させる。
      //           adapter_Main.notifyItemRemoved(swipedPosition);
@@ -125,16 +127,22 @@ public class MainListFragment extends Fragment {
 
     }
 
-    /*@Override
-    public void onStart() {
-        super.onStart();
+
+    @Override
+    public void onResume() {
+        Log.d(TAG, "onResume: called");
+        super.onResume();
         if (Intent.ACTION_SEND.equals(getActivity().getIntent().getAction())) {
-            Intent intent = new Intent(getActivity());
-            startActivity(intent);
-            MainActivity mainActivity = (MainActivity) getActivity();
-            mainActivity.finish();
+
         }
-    }*/
+
+    }
+
+    @Override
+    public void onPause() {
+        Log.d(TAG, "onPause: Called");
+        super.onPause();
+    }
 
     private void clearCanvas(Canvas c, int left, int top, int right, int bottom) {
         Paint paint = new Paint();
@@ -145,6 +153,7 @@ public class MainListFragment extends Fragment {
 
 
     private List<Map<String, Object>> createBookList() {
+        Log.d(TAG,"createBookList: Called");
         List<Map<String, Object>> bookList = new ArrayList<>();
 
         // SQLiteデータベースヘルパークラスのインスタンスを作成
@@ -194,7 +203,6 @@ public class MainListFragment extends Fragment {
      * RecyclerViewのアダプタクラス。
      */
     private class RecyclerListAdapter extends RecyclerView.Adapter<RecyclerListViewHolder> {
-
         /**
          * onCreateViewHolderの引数positionへ出力する値
          */
@@ -232,7 +240,7 @@ public class MainListFragment extends Fragment {
         @Override
         public RecyclerListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             LayoutInflater inflater = LayoutInflater.from(getActivity());
-            Log.d("onCreateViewHolder.inflater", "" + inflater + "");
+
             View view;
 
             switch (viewType) {
@@ -303,31 +311,6 @@ public class MainListFragment extends Fragment {
      * リストをタップした時のリスナクラス。
      */
 
-
-
-    /*private class ListItemClickListener implements View.OnClickListener {
-        private int clickedPosition; // 追加
-
-        @Override
-        public void onClick(View view) {
-            clickedPosition = rvBook.getChildAdapterPosition((View) view.getParent()); // クリックされた位置を取得
-
-            SubListFragment subListFragment = new SubListFragment();
-
-            // 位置情報をBundleにセットしてSubListFragmentに渡す
-            Bundle bundle = new Bundle();
-            bundle.putInt("clicked_position",clickedPosition);
-            subListFragment.setArguments(bundle);
-
-            FragmentManager manager = getParentFragmentManager();
-            FragmentTransaction transaction = manager.beginTransaction();
-            transaction.setReorderingAllowed(true);
-            transaction.addToBackStack("保留");
-            transaction.replace(R.id.fragmentMainContainer, subListFragment);
-            transaction.commit();
-        }
-    }*/
-
     private class ButtonClickListener implements View.OnClickListener {
 
         @Override
@@ -343,7 +326,7 @@ public class MainListFragment extends Fragment {
         }
     }
 
-    public void MainListFragmentUpdata(){
+    public void MainListFragmentUpdate(){
         MainListFragment mainListFragment= new MainListFragment();
         FragmentManager manager = getParentFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
