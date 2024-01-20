@@ -28,8 +28,10 @@ public class MainActivity extends AppCompatActivity {
                 handleSendText(intent);
                 MainListFragment mainListFragment = new MainListFragment();
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.fragmentMainContainer,mainListFragment);
+                transaction.replace(R.id.fragmentMainContainer, mainListFragment);
                 transaction.commit();
+                Log.d("a", "sdsf");
+                finish();
             }
         }
     }

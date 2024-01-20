@@ -1,5 +1,6 @@
 package com.android.ponkan;
 
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -122,8 +123,18 @@ public class MainListFragment extends Fragment {
         };
         new ItemTouchHelper(callback).attachToRecyclerView(rvBook);
 
-
     }
+
+    /*@Override
+    public void onStart() {
+        super.onStart();
+        if (Intent.ACTION_SEND.equals(getActivity().getIntent().getAction())) {
+            Intent intent = new Intent(getActivity());
+            startActivity(intent);
+            MainActivity mainActivity = (MainActivity) getActivity();
+            mainActivity.finish();
+        }
+    }*/
 
     private void clearCanvas(Canvas c, int left, int top, int right, int bottom) {
         Paint paint = new Paint();
@@ -221,7 +232,7 @@ public class MainListFragment extends Fragment {
         @Override
         public RecyclerListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             LayoutInflater inflater = LayoutInflater.from(getActivity());
-            Log.d("inflater", "" + inflater + "");
+            Log.d("onCreateViewHolder.inflater", "" + inflater + "");
             View view;
 
             switch (viewType) {
